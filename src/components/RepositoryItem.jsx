@@ -3,9 +3,9 @@ export function RepositoryItem({
 }) {
   return (
     <div>
-      <strong>{repository.reponame}</strong>
+      <strong>{repository.name}</strong>
       <p>{repository.description}</p>
-      <a href={repository.link}>'Acessar repositório'</a>
+      <a href={repository.link}>Acessar repositório</a>
     </div>
   );
 }

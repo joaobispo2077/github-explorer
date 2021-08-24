@@ -1,34 +1,31 @@
-import { RepositoryItem } from "./RepositoryItem";
-
+import { useEffect, useState } from "react";
 import "../styles/repositories.scss";
 
-const repository = {
-  reponame: "unform",
-  description: "Um formulário simples e flexível",
-  link: "",
-};
+import { RepositoryItem } from "./RepositoryItem";
 
 export function RepositoryList() {
+  const [repositories, setRepositories] = useState([]);
+
+  const handleLoadRepos = (username) => {
+    fetch(`https://api.github.com/users/${username}/repos`)
+      .then((response) => response.json())
+      .then((data) => setRepositories(data));
+  };
+
+  useEffect(() => {
+    handleLoadRepos('joaobispo2077');
+  }, []);
+
   return (
     <section className="repository-list">
       <h1>Lista de repositórios</h1>
 
       <ul>
-        <li>
-          <RepositoryItem
-            repository={repository}
-          />
-        </li>
-        <li>
-          <RepositoryItem
-            repository={repository}
-          />
-        </li>
-        <li>
-          <RepositoryItem
-            repository={repository}
-          />
-        </li>
+        {repositories.map((repo) => ((
+          <li>
+            <RepositoryItem repository={repo} />
+          </li>
+        )))}
       </ul>
     </section>
   );
