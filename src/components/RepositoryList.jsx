@@ -1,5 +1,7 @@
 import { RepositoryItem } from "./RepositoryItem";
 
+import "../styles/repositories.scss";
+
 const repository = {
   reponame: "unform",
   description: "Um formulário simples e flexível",
