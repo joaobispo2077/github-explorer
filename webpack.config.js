@@ -14,6 +14,9 @@ module.exports = {
       '.jsx'
     ]
   },
+  devServer: {
+    static: path.resolve(__dirname, 'public'),
+  },
   module: {
     rules: [
       {
