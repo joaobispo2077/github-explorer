@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import "../styles/repositories.scss";
 
-import { RepositoryItem } from "./RepositoryItem";
+import { RepositoryItem, Repository } from "./RepositoryItem";
 
 export function RepositoryList() {
-  const [repositories, setRepositories] = useState([]);
+  const [repositories, setRepositories] = useState<Repository[]>([]);
 
-  const handleLoadRepos = (username) => {
+  const handleLoadRepos = (username: string) => {
     fetch(`https://api.github.com/users/${username}/repos`)
       .then((response) => response.json())
-      .then((data) => setRepositories(data));
+      .then((data: Repository[]) => setRepositories(data));
   };
 
   useEffect(() => {
