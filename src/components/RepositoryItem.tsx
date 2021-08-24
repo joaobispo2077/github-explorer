@@ -1,4 +1,4 @@
-export type RepositoryProps = {
+export interface Repository {
   id: number;
   name: string;
   description: string;
@@ -6,7 +6,7 @@ export type RepositoryProps = {
 }
 
 export type RepositoryItemProps = {
-  repository: RepositoryProps;
+  repository: Repository;
 }
 
 export function RepositoryItem({
