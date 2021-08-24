@@ -21,11 +21,11 @@ export function RepositoryList() {
       <h1>Lista de repositórios</h1>
 
       <ul>
-        {repositories.map((repo) => ((
-          <li>
+        {repositories.map((repo) => (
+          <li key={repo.id}>
             <RepositoryItem repository={repo} />
           </li>
-        )))}
+        ))}
       </ul>
     </section>
   );
